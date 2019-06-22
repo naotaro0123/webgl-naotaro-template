@@ -1,6 +1,11 @@
 # webgl-naotaro-template
 my webgl simple template
 
+## Memo
+WebPack DevServer Setting  
+https://qiita.com/riversun/items/d27f6d3ab7aaa119deab  
+https://nogson2.hatenablog.com/entry/2018/02/01/005525
+
 ## Build Setup
 
 ``` bash
