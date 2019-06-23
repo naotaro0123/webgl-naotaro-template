@@ -2,7 +2,8 @@ import { mat4 } from 'gl-matrix';
 import vertexShaderSource from './shader/vertexShader.vert';
 import fragmentShaderSource from './shader/fragmentShader.frag';
 
-class WebGLRenderer {
+// reference Site https://wgld.org/d/webgl/w015.html
+class DrawArrays {
   constructor(canvas) {
     this.canvas = canvas;
     this.gl = this.canvas.getContext('webgl');
@@ -103,4 +104,4 @@ class WebGLRenderer {
   }
 }
 
-export default WebGLRenderer;
+export default DrawArrays;
