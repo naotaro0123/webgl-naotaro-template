@@ -1,4 +1,5 @@
-import WebGLRenderer from './DrawElements';
+// import WebGLRenderer from './DrawElements';
+import WebGLRenderer from './webgl2/DrawElements';
 const CANVAS_SIZE = 400;
 
 document.addEventListener('DOMContentLoaded', () => {
