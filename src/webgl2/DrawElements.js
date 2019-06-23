@@ -1,5 +1,5 @@
 import { mat4 } from 'gl-matrix';
-// glsl-shader-loader is GLSL3.0 not Suppoted.
+// glsl-shader-loader is GLSL3.0 not Supported.
 // import vertexShaderSource from './shader/webgl2/vertexShader.vert';
 // import fragmentShaderSource from './shader/webgl2/fragmentShader.frag';
 const vertexShaderSource = fetch('./shader/webgl2/vertexShader.vert');
