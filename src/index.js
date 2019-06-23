@@ -1,7 +1,6 @@
-import WebGLRenderer from './WebGLRenderer';
+import WebGLRenderer from './DrawElements';
 const CANVAS_SIZE = 400;
 
-// reference Site https://wgld.org/d/webgl/w015.html
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('glcanvas');
   canvas.width = canvas.height = CANVAS_SIZE;
