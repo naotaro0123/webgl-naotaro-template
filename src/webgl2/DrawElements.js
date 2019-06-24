@@ -1,9 +1,6 @@
 import { mat4 } from 'gl-matrix';
-// glsl-shader-loader is GLSL3.0 not Supported.
-// import vertexShaderSource from './shader/webgl2/vertexShader.vert';
-// import fragmentShaderSource from './shader/webgl2/fragmentShader.frag';
-const vertexShaderSource = fetch('./shader/webgl2/vertexShader.vert');
-const fragmentShaderSource = fetch('./shader/webgl2/fragmentShader.frag');
+import vertexShaderSource from '../shader/webgl2/vertexShader.vert';
+import fragmentShaderSource from '../shader/webgl2/fragmentShader.frag';
 
 // reference Site https://wgld.org/d/webgl/w018.html
 class DrawElements {
@@ -11,7 +8,7 @@ class DrawElements {
     this.canvas = canvas;
     this.gl = this.canvas.getContext('webgl2');
     this.clear();
-    this.readShader();
+    this.init();
     this.counter = 0;
   }
 
@@ -21,17 +18,9 @@ class DrawElements {
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
   }
 
-  readShader() {
-    Promise.all([vertexShaderSource, fragmentShaderSource])
-      .then(responses => Promise.all([responses[0].text(), responses[1].text()]))
-      .then(shaderSources => {
-        this.init(shaderSources);
-      });
-  }
-
-  init(shaderSources) {
-    const vertexShader = this.createShader('vertex', shaderSources[0]);
-    const fragmentShader = this.createShader('fragment', shaderSources[1]);
+  init() {
+    const vertexShader = this.createShader('vertex', vertexShaderSource);
+    const fragmentShader = this.createShader('fragment', fragmentShaderSource);
     const program = this.createProgram(vertexShader, fragmentShader);
 
     let attLocation = new Array(2);

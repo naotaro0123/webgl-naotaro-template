@@ -15,7 +15,7 @@ module.exports = {
         test: /\.(frag|vert|glsl)$/,
         use: [
           {
-            loader: 'glsl-shader-loader',
+            loader: 'webpack-glsl-loader',
             options: {}
           }
         ]
