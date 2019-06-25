@@ -1,10 +1,13 @@
 import { mat4 } from 'gl-matrix';
-import vertexShaderSource from './shader/vertexShader.vert';
-import fragmentShaderSource from './shader/fragmentShader.frag';
+const vertexShaderSource = require('./shader/vertexShader.vert');
+const fragmentShaderSource = require('./shader/fragmentShader.frag');
 
 // reference Site https://wgld.org/d/webgl/w015.html
 class DrawArrays {
-  constructor(canvas) {
+  private canvas: HTMLCanvasElement;
+  private gl: WebGLRenderingContext;
+
+  constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.gl = this.canvas.getContext('webgl');
     this.clear();
@@ -61,7 +64,7 @@ class DrawArrays {
   }
 
   createShader(type, source) {
-    let shaderType = '';
+    let shaderType: number;
     switch (type) {
       case 'vertex':
         shaderType = this.gl.VERTEX_SHADER;

@@ -4,8 +4,10 @@ module.exports = {
     browser: true,
     node: true
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: 'babel-eslint'
+    sourceType: 'module',
+    project: './tsconfig.json'
   },
   extends: [
     'eslint:recommended',
@@ -15,10 +17,6 @@ module.exports = {
   plugins: [
     'prettier',
   ],
-  parser: "babel-eslint",
-  parserOptions: {
-    'sourceType': 'module',
-  },
   env: {
     'browser': true,
     'node': true,

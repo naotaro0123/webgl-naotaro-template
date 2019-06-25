@@ -1,12 +1,23 @@
 import { mat4 } from 'gl-matrix';
-import vertexShaderSource from '../shader/webgl2/vertexShader.vert';
-import fragmentShaderSource from '../shader/webgl2/fragmentShader.frag';
+const vertexShaderSource = require('./shader/vertexShader.vert');
+const fragmentShaderSource = require('./shader/fragmentShader.frag');
 
 // reference Site https://wgld.org/d/webgl/w018.html
 class DrawElements {
-  constructor(canvas) {
+  private canvas: HTMLCanvasElement;
+  private gl: WebGLRenderingContext;
+  private counter: number;
+  private vertexIndex: number[];
+  private uniLocation: WebGLUniformLocation;
+  private mMatrix: any;
+  private vMatrix: any;
+  private pMatrix: any;
+  private tmpMatrix: any;
+  private mvpMatrix: any;
+
+  constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
-    this.gl = this.canvas.getContext('webgl2');
+    this.gl = this.canvas.getContext('webgl');
     this.clear();
     this.init();
     this.counter = 0;
@@ -58,7 +69,7 @@ class DrawElements {
   }
 
   createShader(type, source) {
-    let shaderType = '';
+    let shaderType: number;
     switch (type) {
       case 'vertex':
         shaderType = this.gl.VERTEX_SHADER;
