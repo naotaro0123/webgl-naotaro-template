@@ -12,6 +12,7 @@
   "author": "naotaro0123",
   "license": "ISC",
   "devDependencies": {
+    "@types/gl-matrix": "^2.4.5",
     "@typescript-eslint/parser": "^1.11.0",
     "acorn": "^6.1.1",
     "babel-core": "^6.26.3",

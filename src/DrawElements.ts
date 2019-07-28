@@ -9,11 +9,11 @@ class DrawElements {
   private counter: number;
   private vertexIndex: number[];
   private uniLocation: WebGLUniformLocation;
-  private mMatrix: any;
-  private vMatrix: any;
-  private pMatrix: any;
-  private tmpMatrix: any;
-  private mvpMatrix: any;
+  private mMatrix: mat4;
+  private vMatrix: mat4;
+  private pMatrix: mat4;
+  private tmpMatrix: mat4;
+  private mvpMatrix: mat4;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
